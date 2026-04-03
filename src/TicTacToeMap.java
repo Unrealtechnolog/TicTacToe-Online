@@ -1,20 +1,48 @@
 public class TicTacToeMap {
-    private int[][] ticTacToeMapPositions; //Player positions 0:empty 1:player1 2: player 2
+    private int[][] ticTacToeMap; //Player positions 0:empty 1:player1 2: player 2
 
     public TicTacToeMap(){
-        ticTacToeMapPositions = new int[3][3];
+        ticTacToeMap = new int[3][3];
     }
 
-    public int[][] getTicTacToeMapPositions() {
-        return ticTacToeMapPositions;
+    public int[][] getMap() {
+        return ticTacToeMap;
     }
 
-    public boolean setTicTacToeMapPositions(int xpos, int ypos, int player) {
-        this.ticTacToeMapPositions = ticTacToeMapPositions;
+    public boolean setMap(int[][] map){
+        if(map.length == 3 && map[0].length == 3){
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (map[i][j] < 0 || map[i][j] > 2) return false;
+                }
+            }
+            ticTacToeMap = map;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setTicTacToeMapPosition(int xpos, int ypos, int player) {
+        if (ticTacToeMap[xpos][ypos] == 0 && (player == 1 || player == 2)) {
+            ticTacToeMap[xpos][ypos] = player;
+            return true;
+        }
         return false;
     }
 
     public int findWinner(){
+        for (int i = 0; i < 3; i++) {
+            if (ticTacToeMap[i][0] == ticTacToeMap[i][1] && ticTacToeMap[i][1] == ticTacToeMap[i][2]){
+                return ticTacToeMap[i][0];
+            } else if (ticTacToeMap[0][i] == ticTacToeMap[1][i] && ticTacToeMap[1][i] == ticTacToeMap[2][i]) {
+                return ticTacToeMap[0][i];
+            }
+        }
+        if (ticTacToeMap[0][0] == ticTacToeMap[1][1] && ticTacToeMap[1][1] == ticTacToeMap[2][2]){
+            return ticTacToeMap[1][1];
+        } else if (ticTacToeMap[2][0] == ticTacToeMap[1][1] && ticTacToeMap[1][1] == ticTacToeMap[0][2]){
+            return ticTacToeMap[1][1];
+        }
         return 0;
     }
 }
