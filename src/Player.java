@@ -12,7 +12,6 @@ public class Player {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
 
-
     public static void main(String[] args) {
         Player player = new Player();
         player.startPlayer();
