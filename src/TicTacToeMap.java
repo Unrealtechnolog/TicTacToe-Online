@@ -9,7 +9,12 @@ public class TicTacToeMap {
         return ticTacToeMapPositions;
     }
 
-    public void setTicTacToeMapPositions(int[][] ticTacToeMapPositions) {
+    public boolean setTicTacToeMapPositions(int xpos, int ypos, int player) {
         this.ticTacToeMapPositions = ticTacToeMapPositions;
+        return false;
+    }
+
+    public int findWinner(){
+        return 0;
     }
 }
