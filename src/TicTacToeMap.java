@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class TicTacToeMap {
     private int[][] ticTacToeMap; //Player positions 0:empty 1:player1 2: player 2
 
@@ -44,5 +46,12 @@ public class TicTacToeMap {
             return ticTacToeMap[1][1];
         }
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + ticTacToeMap[0][2] + ", " +  ticTacToeMap[1][2] + ", " + ticTacToeMap[2][2] + "]\n[" +
+                ticTacToeMap[0][1] + ", " +  ticTacToeMap[1][1] + ", " + ticTacToeMap[2][1] + "]\n[" +
+                ticTacToeMap[0][0] + ", " +  ticTacToeMap[1][0] + ", " + ticTacToeMap[2][0] + "]";
     }
 }
